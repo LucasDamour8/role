@@ -1,0 +1,160 @@
+<style>
+    /* Responsive Grid: 4 columns on large screens, automatically reducing for smaller screens */
+    .role-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 20px; 
+        padding: 30px; 
+        max-width: 1400px;
+        margin: auto;
+    }
+
+    .role-card { 
+        background: #ffffff; 
+        border: 2px solid #0ea5e9; 
+        border-radius: 12px; 
+        padding: 25px; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s;
+    }
+
+    .role-card:hover { transform: translateY(-5px); }
+
+    .role-name { 
+        font-size: 18px; 
+        font-weight: 800; 
+        color: #0f172a; 
+        margin-bottom: 12px; 
+        display: block; 
+        border-bottom: 2px solid #f0f6ff;
+        padding-bottom: 8px;
+    }
+
+    .role-task { 
+        font-size: 14px; 
+        color: #475569; 
+        margin-top: 5px; 
+        display: block; 
+        line-height: 1.5;
+    }
+</style>
+
+<div class="role-grid">
+    <div class="role-card">
+        <span class="role-name">Manager</span>
+        <span class="role-task">• Oversees the system</span>
+        <span class="role-task">• Monitors reports</span>
+        <span class="role-task">• Overall approvals</span>
+        <span class="role-task">• Overall hotel revenue</span>
+        <span class="role-task">• Overall hotel occupancy</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Assistant Manager</span>
+        <span class="role-task">• Assists in supervising operations</span>
+        <span class="role-task">• Managing staff activities</span>
+        <span class="role-task">• Following up daily system reports</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Internal Auditor</span>
+        <span class="role-task">• Reviews financial records</span>
+        <span class="role-task">• Monitors transactions</span>
+        <span class="role-task">• Checks system accuracy & compliance</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Accountant</span>
+        <span class="role-task">• Manages accounting records & payroll</span>
+        <span class="role-task">• Invoices</span>
+        <span class="role-task">• Taxes</span>
+        <span class="role-task">• Expenses</span>
+        <span class="role-task">• Financial reporting</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Cashier</span>
+        <span class="role-task">• Processes guest payments</span>
+        <span class="role-task">• Issues receipts & records daily cash</span>
+        <span class="role-task">• Updates billing information</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Controller</span>
+        <span class="role-task">• Monitors stock & revenue control</span>
+        <span class="role-task">• Manages expenses</span>
+        <span class="role-task">• Verifies operational data</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Store Keepers</span>
+        <span class="role-task">• Manage inventory & stock in/out</span>
+        <span class="role-task">• Track supplies</span>
+        <span class="role-task">• Update stock balances</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Food and Beverages</span>
+        <span class="role-task">• Records restaurant/bar sales</span>
+        <span class="role-task">• Manages menu items & orders</span>
+        <span class="role-task">• Customer service operations</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Chief of Kitchen</span>
+        <span class="role-task">• Oversees kitchen operations</span>
+        <span class="role-task">• Food preparation records</span>
+        <span class="role-task">• Inventory & staff coordination</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Bar man</span>
+        <span class="role-task">• Processes beverage orders</span>
+        <span class="role-task">• Updates bar sales</span>
+        <span class="role-task">• Manages drink inventory</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Coffee man (Barista)</span>
+        <span class="role-task">• Handles coffee orders</span>
+        <span class="role-task">• Records sales</span>
+        <span class="role-task">• Tracks coffee stock & supplies</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Waiters</span>
+        <span class="role-task">• Take customer orders</span>
+        <span class="role-task">• Send orders to kitchen/bar</span>
+        <span class="role-task">• Support billing processes</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Receptionist</span>
+        <span class="role-task">• Manages reservations & room allocation</span>
+        <span class="role-task">• Check-ins/check-outs</span>
+        <span class="role-task">• Guest records & support</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Chief of Cleaners</span>
+        <span class="role-task">• Monitors room cleaning status</span>
+        <span class="role-task">• Assigns cleaning tasks</span>
+        <span class="role-task">• Updates room readiness</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">Chief of Garden</span>
+        <span class="role-task">• Schedules maintenance activities</span>
+        <span class="role-task">• Monitors garden operations</span>
+        <span class="role-task">• Records supply usage</span>
+    </div>
+
+    <div class="role-card">
+        <span class="role-name">HR</span>
+        <span class="role-task">• Manages employee records & payroll</span>
+        <span class="role-task">• Attendance & recruitment</span>
+        <span class="role-task">• Leave & staff performance</span>
+    </div>
+</div>
