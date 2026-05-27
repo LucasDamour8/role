@@ -1,160 +1,168 @@
-<style>
-    /* Responsive Grid: 4 columns on large screens, automatically reducing for smaller screens */
-    .role-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-        gap: 20px; 
-        padding: 30px; 
-        max-width: 1400px;
-        margin: auto;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Main Grid Styling */
+        .role-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            padding: 40px; 
+            max-width: 1400px;
+            margin: auto;
+        }
 
-    .role-card { 
-        background: #ffffff; 
-        border: 2px solid #0ea5e9; 
-        border-radius: 12px; 
-        padding: 25px; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.2s;
-    }
+        .role-card { 
+            background: #ffffff; 
+            border: 2px solid #0ea5e9; 
+            border-radius: 16px; 
+            padding: 30px; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-    .role-card:hover { transform: translateY(-5px); }
+        .role-card:hover { 
+            transform: scale(1.03); 
+            background: #f0f9ff;
+            border-color: #0284c7;
+        }
 
-    .role-name { 
-        font-size: 18px; 
-        font-weight: 800; 
-        color: #0f172a; 
-        margin-bottom: 12px; 
-        display: block; 
-        border-bottom: 2px solid #f0f6ff;
-        padding-bottom: 8px;
-    }
+        .role-name { 
+            font-size: 22px; 
+            font-weight: 900; 
+            color: #0f172a; 
+            margin-bottom: 10px;
+        }
 
-    .role-task { 
-        font-size: 14px; 
-        color: #475569; 
-        margin-top: 5px; 
-        display: block; 
-        line-height: 1.5;
-    }
-</style>
+        .role-hint { font-size: 14px; color: #64748b; font-style: italic; }
 
-<div class="role-grid">
-    <div class="role-card">
+        /* Modal Styling */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+        .modal-content { 
+            background: #ffffff; margin: 10% auto; padding: 40px; border-radius: 20px; 
+            width: 90%; max-width: 500px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .close { position: absolute; right: 25px; top: 20px; font-size: 30px; cursor: pointer; color: #64748b; }
+        .modal-title { font-size: 28px; color: #0ea5e9; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        .modal-task { font-size: 16px; margin: 10px 0; color: #334155; list-style-type: disc; margin-left: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="role-grid" id="roleGrid">
+    <div class="role-card" onclick="openModal('Manager', ['Oversees the system', 'Monitors reports', 'Overall approvals', 'Overall hotel revenue', 'Overall hotel occupancy'])">
         <span class="role-name">Manager</span>
-        <span class="role-task">• Oversees the system</span>
-        <span class="role-task">• Monitors reports</span>
-        <span class="role-task">• Overall approvals</span>
-        <span class="role-task">• Overall hotel revenue</span>
-        <span class="role-task">• Overall hotel occupancy</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Assistant Manager', ['Assists in supervising operations', 'Managing staff activities', 'Following up daily system reports'])">
         <span class="role-name">Assistant Manager</span>
-        <span class="role-task">• Assists in supervising operations</span>
-        <span class="role-task">• Managing staff activities</span>
-        <span class="role-task">• Following up daily system reports</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Internal Auditor', ['Reviews financial records', 'Monitors transactions', 'Checks system accuracy & compliance'])">
         <span class="role-name">Internal Auditor</span>
-        <span class="role-task">• Reviews financial records</span>
-        <span class="role-task">• Monitors transactions</span>
-        <span class="role-task">• Checks system accuracy & compliance</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Accountant', ['Manages accounting records & payroll', 'Invoices', 'Taxes', 'Expenses', 'Financial reporting'])">
         <span class="role-name">Accountant</span>
-        <span class="role-task">• Manages accounting records & payroll</span>
-        <span class="role-task">• Invoices</span>
-        <span class="role-task">• Taxes</span>
-        <span class="role-task">• Expenses</span>
-        <span class="role-task">• Financial reporting</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Cashier', ['Processes guest payments', 'Issues receipts & records daily cash', 'Updates billing information'])">
         <span class="role-name">Cashier</span>
-        <span class="role-task">• Processes guest payments</span>
-        <span class="role-task">• Issues receipts & records daily cash</span>
-        <span class="role-task">• Updates billing information</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Controller', ['Monitors stock & revenue control', 'Manages expenses', 'Verifies operational data'])">
         <span class="role-name">Controller</span>
-        <span class="role-task">• Monitors stock & revenue control</span>
-        <span class="role-task">• Manages expenses</span>
-        <span class="role-task">• Verifies operational data</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Store Keepers', ['Manage inventory & stock in/out', 'Track supplies', 'Update stock balances'])">
         <span class="role-name">Store Keepers</span>
-        <span class="role-task">• Manage inventory & stock in/out</span>
-        <span class="role-task">• Track supplies</span>
-        <span class="role-task">• Update stock balances</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Food and Beverages', ['Records restaurant/bar sales', 'Manages menu items & orders', 'Customer service operations'])">
         <span class="role-name">Food and Beverages</span>
-        <span class="role-task">• Records restaurant/bar sales</span>
-        <span class="role-task">• Manages menu items & orders</span>
-        <span class="role-task">• Customer service operations</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Chief of Kitchen', ['Oversees kitchen operations', 'Food preparation records', 'Inventory & staff coordination'])">
         <span class="role-name">Chief of Kitchen</span>
-        <span class="role-task">• Oversees kitchen operations</span>
-        <span class="role-task">• Food preparation records</span>
-        <span class="role-task">• Inventory & staff coordination</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Bar man', ['Processes beverage orders', 'Updates bar sales', 'Manages drink inventory'])">
         <span class="role-name">Bar man</span>
-        <span class="role-task">• Processes beverage orders</span>
-        <span class="role-task">• Updates bar sales</span>
-        <span class="role-task">• Manages drink inventory</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Coffee man (Barista)', ['Handles coffee orders', 'Records sales', 'Tracks coffee stock & supplies'])">
         <span class="role-name">Coffee man (Barista)</span>
-        <span class="role-task">• Handles coffee orders</span>
-        <span class="role-task">• Records sales</span>
-        <span class="role-task">• Tracks coffee stock & supplies</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Waiters', ['Take customer orders', 'Send orders to kitchen/bar', 'Support billing processes'])">
         <span class="role-name">Waiters</span>
-        <span class="role-task">• Take customer orders</span>
-        <span class="role-task">• Send orders to kitchen/bar</span>
-        <span class="role-task">• Support billing processes</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Receptionist', ['Manages reservations & room allocation', 'Check-ins/check-outs', 'Guest records & support'])">
         <span class="role-name">Receptionist</span>
-        <span class="role-task">• Manages reservations & room allocation</span>
-        <span class="role-task">• Check-ins/check-outs</span>
-        <span class="role-task">• Guest records & support</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Chief of Cleaners', ['Monitors room cleaning status', 'Assigns cleaning tasks', 'Updates room readiness'])">
         <span class="role-name">Chief of Cleaners</span>
-        <span class="role-task">• Monitors room cleaning status</span>
-        <span class="role-task">• Assigns cleaning tasks</span>
-        <span class="role-task">• Updates room readiness</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('Chief of Garden', ['Schedules maintenance activities', 'Monitors garden operations', 'Records supply usage'])">
         <span class="role-name">Chief of Garden</span>
-        <span class="role-task">• Schedules maintenance activities</span>
-        <span class="role-task">• Monitors garden operations</span>
-        <span class="role-task">• Records supply usage</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card">
+    <div class="role-card" onclick="openModal('HR', ['Manages employee records & payroll', 'Attendance & recruitment', 'Leave & staff performance'])">
         <span class="role-name">HR</span>
-        <span class="role-task">• Manages employee records & payroll</span>
-        <span class="role-task">• Attendance & recruitment</span>
-        <span class="role-task">• Leave & staff performance</span>
+        <span class="role-hint">Click to view details</span>
     </div>
 </div>
+
+<div id="roleModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <ul id="modalTasks"></ul>
+    </div>
+</div>
+
+<script>
+    function openModal(title, tasks) {
+        document.getElementById('modalTitle').innerText = title;
+        const taskList = document.getElementById('modalTasks');
+        taskList.innerHTML = '';
+        tasks.forEach(task => {
+            const li = document.createElement('li');
+            li.className = 'modal-task';
+            li.innerText = task;
+            taskList.appendChild(li);
+        });
+        document.getElementById('roleModal').style.display = 'block';
+    }
+
+    function closeModal() { document.getElementById('roleModal').style.display = 'none'; }
+    window.onclick = function(event) { if (event.target == document.getElementById('roleModal')) closeModal(); }
+</script>
+
+</body>
+</html>
