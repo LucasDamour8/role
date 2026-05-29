@@ -52,87 +52,99 @@
         .close { position: absolute; right: 25px; top: 20px; font-size: 30px; cursor: pointer; color: #64748b; }
         .modal-title { font-size: 28px; color: #0ea5e9; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
         .modal-task { font-size: 16px; margin: 10px 0; color: #334155; list-style-type: disc; margin-left: 20px; }
+        
+        /* Report Button */
+        .report-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0ea5e9;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
 <div class="role-grid" id="roleGrid">
-    <div class="role-card" onclick="openModal('Manager', ['Oversees the system', 'Monitors reports', 'Overall approvals', 'Overall hotel revenue', 'Overall hotel occupancy'])">
+    <div class="role-card" onclick="openModal('Manager', ['Oversees the system', 'Monitors reports', 'Overall approvals', 'Overall hotel revenue', 'Overall hotel occupancy'], true)">
         <span class="role-name">Manager</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Assistant Manager', ['Assists in supervising operations', 'Managing staff activities', 'Following up daily system reports'])">
+    <div class="role-card" onclick="openModal('Assistant Manager', ['Assists in supervising operations', 'Managing staff activities', 'Following up daily system reports'], true)">
         <span class="role-name">Assistant Manager</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Internal Auditor', ['Reviews financial records', 'Monitors transactions', 'Checks system accuracy & compliance'])">
+    <div class="role-card" onclick="openModal('Internal Auditor', ['Reviews financial records', 'Monitors transactions', 'Checks system accuracy & compliance'], true)">
         <span class="role-name">Internal Auditor</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Accountant', ['Manages accounting records & payroll', 'Invoices', 'Taxes', 'Expenses', 'Financial reporting'])">
+    <div class="role-card" onclick="openModal('Accountant', ['Manages accounting records & payroll', 'Invoices', 'Taxes', 'Expenses', 'Financial reporting'], true)">
         <span class="role-name">Accountant</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Cashier', ['Processes guest payments', 'Issues receipts & records daily cash', 'Updates billing information'])">
+    <div class="role-card" onclick="openModal('Cashier', ['Processes guest payments', 'Issues receipts & records daily cash', 'Updates billing information'], true)">
         <span class="role-name">Cashier</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Controller', ['Monitors stock & revenue control', 'Manages expenses', 'Verifies operational data'])">
+    <div class="role-card" onclick="openModal('Controller', ['Monitors stock & revenue control', 'Manages expenses', 'Verifies operational data'], true)">
         <span class="role-name">Controller</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Store Keepers', ['Manage inventory & stock in/out', 'Track supplies', 'Update stock balances'])">
+    <div class="role-card" onclick="openModal('Store Keepers', ['Manage inventory & stock in/out', 'Track supplies', 'Update stock balances'], true)">
         <span class="role-name">Store Keepers</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Food and Beverages', ['Records restaurant/bar sales', 'Manages menu items & orders', 'Customer service operations'])">
+    <div class="role-card" onclick="openModal('Food and Beverages', ['Records restaurant/bar sales', 'Manages menu items & orders', 'Customer service operations'], true)">
         <span class="role-name">Food and Beverages</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Chief of Kitchen', ['Oversees kitchen operations', 'Food preparation records', 'Inventory & staff coordination'])">
+    <div class="role-card" onclick="openModal('Chief of Kitchen', ['Oversees kitchen operations', 'Food preparation records', 'Inventory & staff coordination'], false)">
         <span class="role-name">Chief of Kitchen</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Bar man', ['Processes beverage orders', 'Updates bar sales', 'Manages drink inventory'])">
+    <div class="role-card" onclick="openModal('Bar man', ['Processes beverage orders', 'Updates bar sales', 'Manages drink inventory'], true)">
         <span class="role-name">Bar man</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Coffee man (Barista)', ['Handles coffee orders', 'Records sales', 'Tracks coffee stock & supplies'])">
+    <div class="role-card" onclick="openModal('Coffee man (Barista)', ['Handles coffee orders', 'Records sales', 'Tracks coffee stock & supplies'], true)">
         <span class="role-name">Coffee man (Barista)</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Waiters', ['Take customer orders', 'Send orders to kitchen/bar', 'Support billing processes'])">
+    <div class="role-card" onclick="openModal('Waiters', ['Take customer orders', 'Send orders to kitchen/bar', 'Support billing processes'], false)">
         <span class="role-name">Waiters</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Receptionist', ['Manages reservations & room allocation', 'Check-ins/check-outs', 'Guest records & support'])">
+    <div class="role-card" onclick="openModal('Receptionist', ['Manages reservations & room allocation', 'Check-ins/check-outs', 'Guest records & support'], false)">
         <span class="role-name">Receptionist</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Chief of Cleaners', ['Monitors room cleaning status', 'Assigns cleaning tasks', 'Updates room readiness'])">
+    <div class="role-card" onclick="openModal('Chief of Cleaners', ['Monitors room cleaning status', 'Assigns cleaning tasks', 'Updates room readiness'], false)">
         <span class="role-name">Chief of Cleaners</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('Chief of Garden', ['Schedules maintenance activities', 'Monitors garden operations', 'Records supply usage'])">
+    <div class="role-card" onclick="openModal('Chief of Garden', ['Schedules maintenance activities', 'Monitors garden operations', 'Records supply usage'], false)">
         <span class="role-name">Chief of Garden</span>
         <span class="role-hint">Click to view details</span>
     </div>
 
-    <div class="role-card" onclick="openModal('HR', ['Manages employee records & payroll', 'Attendance & recruitment', 'Leave & staff performance'])">
+    <div class="role-card" onclick="openModal('HR', ['Manages employee records & payroll', 'Attendance & recruitment', 'Leave & staff performance'], true)">
         <span class="role-name">HR</span>
         <span class="role-hint">Click to view details</span>
     </div>
@@ -143,20 +155,34 @@
         <span class="close" onclick="closeModal()">&times;</span>
         <h2 class="modal-title" id="modalTitle"></h2>
         <ul id="modalTasks"></ul>
+        <div id="reportContainer"></div>
     </div>
 </div>
 
 <script>
-    function openModal(title, tasks) {
+    function openModal(title, tasks, showReport) {
         document.getElementById('modalTitle').innerText = title;
         const taskList = document.getElementById('modalTasks');
+        const reportContainer = document.getElementById('reportContainer');
+        
         taskList.innerHTML = '';
+        reportContainer.innerHTML = '';
+        
         tasks.forEach(task => {
             const li = document.createElement('li');
             li.className = 'modal-task';
             li.innerText = task;
             taskList.appendChild(li);
         });
+
+        if (showReport) {
+            const btn = document.createElement('button');
+            btn.className = 'report-btn';
+            btn.innerText = 'View ' + title + ' Report';
+            btn.onclick = function() { alert('Redirecting to report for ' + title); };
+            reportContainer.appendChild(btn);
+        }
+
         document.getElementById('roleModal').style.display = 'block';
     }
 
